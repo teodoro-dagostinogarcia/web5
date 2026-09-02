@@ -2009,6 +2009,33 @@ button {
     }
 }
 
+/* Consistent editorial-photo frame: fill the text column and crop gently
+   rather than leaving paper-coloured bands around differently sized images. */
+.content .page-photo {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 2.4 / 1;
+    margin: 0 0 22px;
+    background: transparent;
+}
+
+.content .page-photo img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    background: transparent;
+}
+
+.content .page-photo.is-portrait {
+    aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 600px) {
+    .content .page-photo { aspect-ratio: 1.8 / 1; }
+    .content .page-photo.is-portrait { aspect-ratio: 4 / 3; }
+}
+
 /* Mobile layout compatibility with v2.
    Kept at the end so these rules also win over the desktop refinement layer. */
 @media (max-width: 850px) {
