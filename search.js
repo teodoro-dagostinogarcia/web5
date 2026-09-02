@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
   const form = document.getElementById("site-search-form");
-  const input = document.getElementById("site-search");
+  const input = document.getElementById("site-search-input");
   const results = document.getElementById("search-results");
   const status = document.getElementById("search-status");
   if (!form || !input || !results || !status) return;
