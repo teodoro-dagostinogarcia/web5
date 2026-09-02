@@ -2063,6 +2063,19 @@ button {
 /* Mobile layout compatibility with v2.
    Kept at the end so these rules also win over the desktop refinement layer. */
 @media (max-width: 850px) {
+    /* Tablets need the menu control as the full navigation is collapsed. */
+    .nav-toggle { display: block; margin-left: auto; }
+
+    /* Give wide tables a scrollable containing area instead of letting them
+       push the whole document off-screen. */
+    .content { overflow-x: auto; }
+    .content table {
+        display: table;
+        width: max-content;
+        min-width: 100%;
+        max-width: none;
+    }
+
     .nav-shell {
         position: relative;
         min-height: 68px;
@@ -2130,6 +2143,11 @@ button {
 }
 
 @media (max-width: 600px) {
+    body { font-size: 15px; }
+    .content { font-size: 15px; }
+    .content table { font-size: 13px; }
+    .hero-dek { font-size: 13px; }
+
     .content { padding: 19px 16px 22px; }
     .home-copy { padding: 31px 18px 33px; }
     .home-copy h1 { max-width: 16ch; font-size: 28px; }
