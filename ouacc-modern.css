@@ -260,25 +260,6 @@ button {
     color: var(--blue) !important;
 }
 
-.main-nav > a.nav-book {
-    display: flex;
-    align-items: center;
-    min-height: 40px;
-    padding: 0 10px;
-    color: var(--white);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: .065em;
-    font-size: 9.5px;
-    font-weight: 600;
-    border-bottom: 2px solid transparent;
-}
-.main-nav > a.nav-book:hover,
-.main-nav > a.nav-book:focus-visible {
-    color: var(--white);
-    border-bottom-color: var(--gold);
-}
-
 
 /* =========================================================
    DROPDOWN NAVIGATION
@@ -712,8 +693,8 @@ button {
 
 .side-promo img {
     width: auto;
-    max-width: 120px;
-    max-height: 34px;
+    max-width: 190px;
+    max-height: 62px;
 
     margin: 1px 0 5px;
 
@@ -1576,13 +1557,13 @@ button {
 
 .partner-logos img {
     width: auto;
-    height: 27px;
-    max-width: 145px;
+    height: 42px;
+    max-width: 210px;
 
     object-fit: contain;
 
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
+    filter: none;
+    opacity: 1;
 }
 
 
@@ -1955,6 +1936,43 @@ button {
     }
 }
 
+@media (max-width: 850px) {
+    .nav-shell { position: relative; }
+    .main-nav { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; padding: 6px 15px 12px; background: var(--blue); z-index: 120; }
+    .main-nav.is-open { display: flex; }
+    .main-nav > a, .nav-parent { min-height: 38px; padding: 0 3px; border-bottom: 1px solid rgba(255,255,255,.10); }
+    .nav-group { flex-wrap: wrap; }
+    .nav-group .nav-parent { flex: 1; }
+    .nav-caret { width: 32px; margin-left: 0; }
+    .dropdown-menu { position: static; display: none; width: 100%; min-width: 0; padding: 2px 0 5px 10px; border-top: 0; box-shadow: none; opacity: 1; pointer-events: auto; transform: none; }
+    .nav-group.is-open .dropdown-menu { display: block; }
+    .page-grid, .home-hero-inner, .feature-inner { grid-template-columns: 1fr; }
+    .side-rail { position: static; order: -1; }
+    .side-rail nav { display: flex; flex-wrap: wrap; }
+    .side-promo { display: none; }
+    .home-photo { order: -1; min-height: 285px; }
+}
+.nav-book { display: flex; align-items: center; min-height: 40px; padding: 0 10px; color: var(--white); text-decoration: none; text-transform: uppercase; font-size: 9.5px; font-weight: 600; }
+.nav-book:hover, .nav-book:focus-visible { color: var(--white); border-bottom: 2px solid var(--gold); }
+.sponsor-link { display: inline-block; }
+.search-page { max-width: 780px; padding: 20px 0 56px; background: transparent; box-shadow: none; }
+.search-page .search-form-row { display: flex; gap: 9px; }
+.search-page .search-result { padding: 17px 0 18px; border-top: 1px solid var(--line); }
+@media (max-width: 600px) { .search-page .search-form-row { flex-direction: column; } .search-page .search-form-row .button { width: 100%; } }
+
+/* Keep search content comfortably inside the page panel. */
+.search-page {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+@media (max-width: 600px) {
+    .search-page {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
 /* Mobile layout compatibility with v2.
    Kept at the end so these rules also win over the desktop refinement layer. */
 @media (max-width: 850px) {
@@ -2036,55 +2054,4 @@ button {
     .content .photo-grid { grid-template-columns: 1fr; }
     .page-photo img { max-height: 210px; }
     .page-photo.is-portrait img { max-height: 265px; }
-}
-
-/* Search page presentation and interaction fixes. */
-.search-page {
-    max-width: 780px;
-    padding: 20px 0 56px;
-    background: transparent;
-    box-shadow: none;
-}
-
-.search-page .site-search-form { padding: 0 0 6px; }
-.search-page .site-search-form > label {
-    display: block;
-    margin-bottom: 7px;
-    color: var(--blue);
-    font-family: "Libre Baskerville", Georgia, serif;
-    font-size: 15px;
-}
-.search-page .search-form-row { display: flex; gap: 9px; }
-.search-page .search-form-row input {
-    flex: 1;
-    min-width: 0;
-    padding: 11px 12px;
-    border: 1px solid #bdb5a8;
-    background: var(--white);
-    color: var(--ink);
-    font: inherit;
-}
-.search-page .search-form-row input:focus { outline: 2px solid rgba(228,175,51,.7); outline-offset: 1px; }
-.search-page .search-help { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
-.search-page .search-status { margin: 20px 0 10px; color: var(--muted); font-size: 12px; }
-.search-page .search-results { display: grid; gap: 1px; }
-.search-page .search-result { padding: 17px 0 18px; border-top: 1px solid var(--line); }
-.search-page .search-result-title {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--blue);
-    font-family: "Libre Baskerville", Georgia, serif;
-    font-size: 17px;
-    line-height: 1.3;
-    text-decoration: none;
-}
-.search-page .search-result-title:hover { color: var(--green); }
-.search-page .search-result p { margin: 0 0 8px; color: var(--muted); font-size: 13px; line-height: 1.52; }
-.search-page .search-empty,
-.search-page .no-results { padding: 18px 0; color: var(--muted); }
-
-@media (max-width: 600px) {
-    .search-page { padding: 18px 0 32px; }
-    .search-page .search-form-row { flex-direction: column; }
-    .search-page .search-form-row .button { width: 100%; }
 }

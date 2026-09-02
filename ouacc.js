@@ -3,15 +3,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.querySelector(".nav-toggle");
     const groups = document.querySelectorAll(".nav-group");
 
-    // Add the court-booking action consistently to every page using the shared header.
     if (nav && !nav.querySelector(".nav-book")) {
         const bookingLink = document.createElement("a");
         bookingLink.className = "nav-book";
         bookingLink.href = "https://croquetbooking.com/book/index.php?view=day&area=1&room=1&site=53";
         bookingLink.textContent = "Book a court";
-        const joinLink = nav.querySelector(".nav-join");
-        nav.insertBefore(bookingLink, joinLink || null);
+        nav.insertBefore(bookingLink, nav.querySelector(".nav-join") || null);
     }
+
+    document.querySelectorAll('img[src*="images/partners/"]').forEach(function (logo) {
+        if (logo.closest("a")) return;
+        const source = logo.getAttribute("src");
+        const prefix = source.split("images/partners/")[0];
+        const link = document.createElement("a");
+        link.className = "sponsor-link";
+        link.href = prefix + "partnerships.html";
+        logo.parentNode.insertBefore(link, logo);
+        link.appendChild(logo);
+    });
 
     if (toggle && nav) {
         toggle.addEventListener("click", function () {
