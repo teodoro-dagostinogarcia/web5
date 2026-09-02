@@ -1673,7 +1673,8 @@ button {
     }
 
     .home-photo {
-        min-height: 250px;
+        min-height: 220px;
+        background-position: center 40%;
     }
 
     .home-strip a {
@@ -1701,6 +1702,21 @@ button {
 
     .content .photo-grid img {
         height: 120px;
+    }
+
+    /* Make wide tables scrollable on small screens */
+    .content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        min-width: 520px;
+    }
+
+    /* Improve tappable targets on small screens */
+    .button {
+        min-height: 44px;
+        padding: 12px 14px;
+        font-size: 11px;
     }
 
     .footer-shell {
@@ -1754,7 +1770,60 @@ button {
     .search-form-row button {
         width: 100%;
     }
+
+    /* Mobile menu behaviour */
+    .main-nav.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--blue);
+        padding: 12px 16px 16px;
+        border-bottom: 1px solid rgba(228, 175, 51, 0.34);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        z-index: 120;
+    }
+
+    .main-nav.is-open > a,
+    .main-nav.is-open .nav-parent {
+        display: block;
+        padding: 10px 12px;
+        white-space: normal;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        font-size: 13px;
+    }
+
+    .main-nav .nav-caret {
+        margin-left: 8px;
+    }
+
+    .main-nav .dropdown-menu {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        box-shadow: none;
+        padding-left: 12px;
+        padding-top: 6px;
+    }
+
+    .nav-group.is-open > .dropdown-menu {
+        display: block;
+    }
+
+    .nav-toggle {
+        background: transparent;
+        border: 1px solid rgba(228, 175, 51, 0.8);
+        padding: 8px 10px;
+    }
+
+    .brand-mark {
+        height: 44px;
+    }
 }
+
 
 
 /* =========================================================

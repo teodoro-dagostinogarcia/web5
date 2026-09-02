@@ -40,4 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // Make images lazy by default, except the brand mark (logo) which should load eagerly.
+    document.querySelectorAll('img').forEach(function(img){
+        if (!img.hasAttribute('loading') && !img.classList.contains('brand-mark')) {
+            img.setAttribute('loading', 'lazy');
+        }
+    });
 });
