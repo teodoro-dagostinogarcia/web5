@@ -2036,6 +2036,30 @@ button {
     .content .page-photo.is-portrait { aspect-ratio: 4 / 3; }
 }
 
+/* Match v2's editorial-photo treatment: one predictable landscape crop,
+   with the TOC remaining a separate block before the image. */
+.content .page-photo {
+    aspect-ratio: auto;
+    height: 225px;
+    max-width: 820px;
+    margin-left: 0;
+    margin-right: auto;
+    background: transparent;
+}
+
+.content .page-photo.is-portrait {
+    height: 300px;
+    aspect-ratio: auto;
+}
+
+@media (max-width: 600px) {
+    .content .page-photo {
+        height: 210px;
+        max-width: 100%;
+    }
+    .content .page-photo.is-portrait { height: 265px; }
+}
+
 /* Mobile layout compatibility with v2.
    Kept at the end so these rules also win over the desktop refinement layer. */
 @media (max-width: 850px) {
